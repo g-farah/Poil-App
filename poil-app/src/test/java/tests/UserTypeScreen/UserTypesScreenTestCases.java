@@ -40,7 +40,7 @@ public class UserTypesScreenTestCases extends AppiumConfiguration {
     }
 
     @Test
-    public void chooseIndividualTypeAndTapNext() throws MalformedURLException, URISyntaxException, InterruptedException {
+    public static void chooseIndividualTypeAndTapNext() throws MalformedURLException, URISyntaxException, InterruptedException {
         configureAppium();
 
         Thread.sleep(5000);
