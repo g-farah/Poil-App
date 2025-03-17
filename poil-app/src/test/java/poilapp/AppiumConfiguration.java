@@ -1,4 +1,4 @@
-package com.poilapp;
+package poilapp;
 
 import java.net.MalformedURLException;
 import java.net.URI;
