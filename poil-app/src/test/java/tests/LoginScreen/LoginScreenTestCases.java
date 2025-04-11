@@ -37,22 +37,22 @@ public class LoginScreenTestCases extends AppiumConfiguration {
 
         // Focus on the Email Address Field
         // Insert an invalid email
-        WebElement emailAddressElement = driver.findElement(By.xpath(this.emailAddressField));
-        emailAddressElement.click();
-        emailAddressElement.sendKeys(this.invalidEmail);
+        WebElement emailAddressElement = waitForElementToBeVisible(By.xpath(emailAddressField));
+        emailAddressElement.clear(); // Clear any existing text first
+        emailAddressElement.sendKeys(invalidEmail);
 
         // Focus on the password field
         // Insert a valid password
-        WebElement passwordElement = driver.findElement(By.xpath(this.passwordField));
+        WebElement passwordElement = waitForElementToBeVisible(By.xpath(this.passwordField));
         passwordElement.click();
         passwordElement.sendKeys(this.validPassword);
 
         // Tap on the login button
-        WebElement loginElement = driver.findElement(By.xpath(this.loginButton));
+        WebElement loginElement = waitForElementToBeClickable(By.xpath(this.loginButton));
         loginElement.click();
-        Thread.sleep(3000);
 
-        WebElement errorElement = driver.findElement(By.xpath(this.invalidCredentialsPopUp));
+        // Wait for error popup to be visible
+        WebElement errorElement = waitForElementToBeVisible(By.xpath(this.invalidCredentialsPopUp));
         isErrorPopupVisible = errorElement.isDisplayed();
         Assert.assertEquals(isErrorPopupVisible, this.isElementVisible);
     }
@@ -64,18 +64,21 @@ public class LoginScreenTestCases extends AppiumConfiguration {
         UserTypesScreenTestCases.chooseIndividualTypeAndTapNext();
 
         // Focus on the Email Address Element and insert an invalid email address
-        WebElement emailAddressElement = driver.findElement(By.xpath(this.emailAddressField));
+        WebElement emailAddressElement = waitForElementToBeVisible(By.xpath(this.emailAddressField));
         emailAddressElement.click();
         emailAddressElement.sendKeys(this.validEmail);
 
         // Focus on the Password Field and insert a valid password
-        WebElement passwordElement = driver.findElement(By.xpath(this.passwordField));
+        WebElement passwordElement = waitForElementToBeVisible(By.xpath(this.passwordField));
         passwordElement.click();
         passwordElement.sendKeys(this.validPassword);
 
         // Tap on the Login button
-        WebElement loginElement = driver.findElement(By.xpath(this.loginButton));
+        WebElement loginElement = waitForElementToBeClickable(By.xpath(this.loginButton));
         loginElement.click();
-        System.out.println("======== LOGGED IN ========");
+        
+        WebElement welcomeMessageElement = waitForElementToBeVisible(By.xpath(this.welcomeMessage));
+        isWelcomeMessageElementVisible = welcomeMessageElement.isDisplayed();
+        Assert.assertEquals(isWelcomeMessageElementVisible, this.isElementVisible);
     }
 }
