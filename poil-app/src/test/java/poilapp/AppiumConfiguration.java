@@ -13,10 +13,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AppiumConfiguration {
-    private static String applicationPath = "E:\\Coding\\Automation\\Poil Automation\\poil-app\\src\\test\\java\\resources\\POIL_AUTOMATION.apk";
+    private static String applicationPath = "C:\\Users\\GeorgesF\\OneDrive\\Desktop\\Automation Projects\\Appium Automation\\PoilAutomation\\poil-app\\src\\test\\java\\resources\\POIL_GROUP_LATEST.apk";
     private static String appiumURL = "http://127.0.0.1:4723/wd/hub";
     private static String emulatorName = "Poil Emulator";
-    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(10);
+    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(15);
 
     public static AndroidDriver driver;
     private static WebDriverWait wait;

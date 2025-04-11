@@ -43,18 +43,18 @@ public class LoginScreenTestCases extends AppiumConfiguration {
 
         // Focus on the password field
         // Insert a valid password
-        WebElement passwordElement = waitForElementToBeVisible(By.xpath(this.passwordField));
+        WebElement passwordElement = waitForElementToBeVisible(By.xpath(passwordField));
         passwordElement.click();
-        passwordElement.sendKeys(this.validPassword);
+        passwordElement.sendKeys(validPassword);
 
         // Tap on the login button
-        WebElement loginElement = waitForElementToBeClickable(By.xpath(this.loginButton));
+        WebElement loginElement = waitForElementToBeClickable(By.xpath(loginButton));
         loginElement.click();
 
         // Wait for error popup to be visible
-        WebElement errorElement = waitForElementToBeVisible(By.xpath(this.invalidCredentialsPopUp));
+        WebElement errorElement = waitForElementToBeVisible(By.xpath(invalidCredentialsPopUp));
         isErrorPopupVisible = errorElement.isDisplayed();
-        Assert.assertEquals(isErrorPopupVisible, this.isElementVisible);
+        Assert.assertEquals(isErrorPopupVisible, isElementVisible);
     }
 
     @Test
@@ -64,21 +64,21 @@ public class LoginScreenTestCases extends AppiumConfiguration {
         UserTypesScreenTestCases.chooseIndividualTypeAndTapNext();
 
         // Focus on the Email Address Element and insert an invalid email address
-        WebElement emailAddressElement = waitForElementToBeVisible(By.xpath(this.emailAddressField));
+        WebElement emailAddressElement = waitForElementToBeVisible(By.xpath(emailAddressField));
         emailAddressElement.click();
-        emailAddressElement.sendKeys(this.validEmail);
+        emailAddressElement.sendKeys(validEmail);
 
         // Focus on the Password Field and insert a valid password
-        WebElement passwordElement = waitForElementToBeVisible(By.xpath(this.passwordField));
+        WebElement passwordElement = waitForElementToBeVisible(By.xpath(passwordField));
         passwordElement.click();
-        passwordElement.sendKeys(this.validPassword);
+        passwordElement.sendKeys(validPassword);
 
         // Tap on the Login button
-        WebElement loginElement = waitForElementToBeClickable(By.xpath(this.loginButton));
+        WebElement loginElement = waitForElementToBeClickable(By.xpath(loginButton));
         loginElement.click();
         
-        WebElement welcomeMessageElement = waitForElementToBeVisible(By.xpath(this.welcomeMessage));
+        WebElement welcomeMessageElement = waitForElementToBeVisible(By.xpath(welcomeMessage));
         isWelcomeMessageElementVisible = welcomeMessageElement.isDisplayed();
-        Assert.assertEquals(isWelcomeMessageElementVisible, this.isElementVisible);
+        Assert.assertEquals(isWelcomeMessageElementVisible, isElementVisible);
     }
 }
